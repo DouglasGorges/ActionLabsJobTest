@@ -1,6 +1,6 @@
 package entities;
 
-public class Marvin {
+public class RareNotes {
 
 	public static void main(String[] args) {
 
