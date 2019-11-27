@@ -6,12 +6,10 @@ public class SithAnagrams {
 	
 	public static void main(String[] args) {
 		
-		String word1 = "gfdsa act TT";
+		String word1 = "gfdsad act TT";
 		String word2 = "cat tt asdfg";
 
-		boolean areAnagram = areAnagrams(word1, word2);
-
-		if (areAnagram)
+		if (areAnagrams(word1, word2))
 			System.out.println("It's a anagram.");
 		else
 			System.out.println("It's not a anagram.");

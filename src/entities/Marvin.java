@@ -4,16 +4,15 @@ public class Marvin {
 
 	public static void main(String[] args) {
 
-		int[] source = { 1, 1, 2, 2, 2, 1, 5, 5 };
+		int[] source = { 1, 3, 4, 2, 2, 1, 5, 5 };
 		int[] rareNotes = null;
 
 		rareNotes = getRareNotes(source);
 
 		if (rareNotes != null) {
-			for (int i = 0; i < rareNotes.length; i++) {
-				if (rareNotes[i] != 0)
-					System.out.println(rareNotes[i]);
-			}
+			for (int rareNote : rareNotes)
+				if (rareNote != 0)
+					System.out.println(rareNote);
 		} else
 			System.out.println("There are no rare notes.");
 	}
@@ -43,8 +42,8 @@ public class Marvin {
 
 		boolean isRareNotesEmpty = true;
 
-		for (int i = 0; i < rareNotes.length; i++) {
-			if (rareNotes[i] != 0) {
+		for (int rareNote : rareNotes) {
+			if (rareNote != 0) {
 				isRareNotesEmpty = false;
 				break;
 			}
