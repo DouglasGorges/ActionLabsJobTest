@@ -4,22 +4,21 @@ public class RareNotes {
 
 	public static void main(String[] args) {
 
-		int[] source = { 1, 3, 4, 2, 2, 1, 5, 5 };
+		int[] source = { 1, 1, 1, 1, 1, 1, 5, 5 };
 		int[] rareNotes = null;
 
 		rareNotes = getRareNotes(source);
 
 		if (rareNotes != null) {
 			for (int rareNote : rareNotes)
-				if (rareNote != 0)
-					System.out.println(rareNote);
+				System.out.println(rareNote);
 		} else
 			System.out.println("There are no rare notes.");
 	}
 
 	private static int[] getRareNotes(int[] notes) {
 
-		int[] rareNotes = new int[notes.length];
+		int[] rareNotesTemp = new int[notes.length];
 		Integer temp = null;
 		int rareIndex = 0;
 
@@ -35,22 +34,33 @@ public class RareNotes {
 				}
 			}
 			if (temp != null) {
-				rareNotes[rareIndex] = temp;
+				rareNotesTemp[rareIndex] = temp;
 				rareIndex++;
 			}
 		}
 
 		boolean isRareNotesEmpty = true;
+		int rareNotesLength = 0;
 
-		for (int rareNote : rareNotes) {
+		for (int rareNote : rareNotesTemp) {
 			if (rareNote != 0) {
 				isRareNotesEmpty = false;
-				break;
+				rareNotesLength++;
 			}
 		}
 
+		int[] rareNotes = new int[rareNotesLength];
+
 		if (isRareNotesEmpty)
 			rareNotes = null;
+		else {
+			int j = 0;
+			for (int rareNote : rareNotesTemp)
+				if (rareNote != 0) {
+					rareNotes[j] = rareNote;
+					j++;
+				}
+		}
 
 		return rareNotes;
 	}
